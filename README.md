@@ -14,6 +14,9 @@ pip install git+https://github.com/Tideseed/robokami-py.git
 
 ## Authentication
 
+> **Warning**
+> During the open beta of Robokami, it is recommended to use only test CAS (EKYS) accounts.
+
 Prepare a JSON file in the following format. Your user should have IDM access privileges for both test server (`test-ekys`, `giptest`) and live server. (If you just want to do testing with live data you only need test user IDM access privileges.)
 
 ```json
