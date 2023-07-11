@@ -38,7 +38,7 @@ def prepare_order(
             trade_command_phrase = "update_order"
 
     if order_note is not None:
-        d["explanation"] = order_note
+        d["order_note"] = order_note
 
     return d2, trade_command_phrase
 

@@ -33,14 +33,14 @@ class RKClient:
 
     def place_order(self, d):
         d["status"] = d.get("status", "active")
-        d["explanation"] = d.get("explanation", "RK-TRADER")
+        d["order_note"] = d.get("order_note", "RK-TRADER")
         return self.trade_command("place_order", d)
 
     def update_order(self, d):
         if "order_id" not in d.keys():
             return {"status": "error", "message": "order_id is required"}
-        d["contract_type"] = "hourly" if d["contract"].startswith("PH") else "block"
-        d["explanation"] = d.get("explanation", "RK-TRADER")
+        d["contract_type"] = "hourly" if d["c"].startswith("PH") else "block"
+        d["order_note"] = d.get("order_note", "RK-TRADER")
         return self.trade_command("update_order", d)
 
     def trade_command(self, command, d):

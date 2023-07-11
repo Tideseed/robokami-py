@@ -103,12 +103,12 @@ You can place orders and update orders. Suppose you are going to send a new orde
 
 ```python
 order_d = {
-    "contract": "PH23070112",
+    "c": "PH23070112",
     "position": "bid",
     "price": 100,
     "lots": 1,
     "status": "active",
-    "explanation": "RK test order"
+    "order_note": "RK test order"
 }
 ```
 
@@ -117,7 +117,7 @@ order_d = {
 + `price`: Price of the order.
 + `lots`: Number of lots.
 + `status`: `active` for active orders, `inactive` for inactive orders.
-+ `explanation`: Explanation for the order.
++ `order_note`: order_note for the order.
 
 
 Then simply place the order using `rkc`.
