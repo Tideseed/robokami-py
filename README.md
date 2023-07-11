@@ -6,7 +6,13 @@ _Note: Robokami Client is in alpha phase, so there will be breaking changes very
 
 ## Installation
 
-First download this repository or directly install it pip.
+First download this repository or directly install it [pip](https://pypi.org).
+
+```bash
+pip install robokami-py
+```
+
+Alternatively you can choose to install from GitHub
 
 ```bash
 pip install git+https://github.com/Tideseed/robokami-py.git
