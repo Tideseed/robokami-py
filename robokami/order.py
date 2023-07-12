@@ -8,7 +8,7 @@ def prepare_order(
     lots=None,
     demo=True,
     order_note=None,
-    status=None,
+    order_status=None,
 ):
     d2 = copy.deepcopy(d)
     trade_command_phrase = "pass"
@@ -18,7 +18,7 @@ def prepare_order(
         d2["order_id"] = "DEMO" if demo else None
         d2["price"] = price
         d2["lots"] = lots
-        d2["status"] = "active" if status is None else status
+        d2["order_status"] = "active" if order_status is None else order_status
         if demo:
             d2["ts"] = datetime.now().timestamp()
         else:
@@ -31,8 +31,8 @@ def prepare_order(
         if lots != d["lots"] and lots is not None:
             d2["lots"] = lots
             update_order = True
-        if status != d["status"] and status is not None:
-            d2["status"] = status
+        if order_status != d["order_status"] and order_status is not None:
+            d2["order_status"] = order_status
             update_order = True
         if update_order:
             trade_command_phrase = "update_order"
@@ -64,7 +64,7 @@ def send_trade_order(client, d, command_phrase):
             # d["order_id"] = res[0]["response"]
             d["ts"] = datetime.now().timestamp()
         elif res["detail"] == "partial_match_occured":
-            d["status"] = "cancelled"
+            d["order_status"] = "cancelled"
             res = client.update_order(d=d)
             if res["status"] == "success":
                 d["order_id"] = None
@@ -73,7 +73,7 @@ def send_trade_order(client, d, command_phrase):
         else:
             raise Exception("Order could not be placed")
     elif command_phrase == "cancel_order":
-        d["status"] = "cancelled"
+        d["order_status"] = "cancelled"
         res = client.update_order(d=d)
         if res["status"] == "success":
             d["order_id"] = None

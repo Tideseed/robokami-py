@@ -107,16 +107,16 @@ order_d = {
     "position": "bid",
     "price": 100,
     "lots": 1,
-    "status": "active",
+    "order_status": "active",
     "order_note": "RK test order"
 }
 ```
 
-+ `contract`: Name of the contract. Hourly contracts are in PHyyMMDDHH format. Block contracts are in PByyMMDDHH-XX format where XX is the number of hours.
++ `c`: Name of the contract. Hourly contracts are in PHyyMMDDHH format. Block contracts are in PByyMMDDHH-XX format where XX is the number of hours.
 + `position`: `bid` for buy, `ask` for sell.
 + `price`: Price of the order.
 + `lots`: Number of lots.
-+ `status`: `active` for active orders, `inactive` for inactive orders.
++ `order_status`: `active` for active orders, `inactive` for inactive orders.
 + `order_note`: order_note for the order.
 
 

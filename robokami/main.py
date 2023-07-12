@@ -32,7 +32,7 @@ class RKClient:
         self.authorize()
 
     def place_order(self, d):
-        d["status"] = d.get("status", "active")
+        d["order_status"] = d.get("order_status", "active")
         d["order_note"] = d.get("order_note", "RK-TRADER")
         return self.trade_command("place_order", d)
 
