@@ -1,1 +1,1 @@
-robokami_version = "0.11"
+robokami_version = "0.11.1"

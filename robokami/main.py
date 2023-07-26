@@ -2,6 +2,7 @@ import requests
 import os
 import sseclient
 from datetime import datetime
+import urllib.parse
 
 
 class RKClient:
@@ -44,8 +45,9 @@ class RKClient:
         return self.trade_command("update_order", d)
 
     def trade_command(self, command, d):
+        command_phrase = urllib.parse.urljoin(self.server, ("trade/" + command))
         res = requests.post(
-            os.path.join(self.server, "trade", command),
+            command_phrase,
             headers={"Authorization": self.session_token},
             json=d,
         )
