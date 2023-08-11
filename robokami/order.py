@@ -1,15 +1,30 @@
 import copy
 from datetime import datetime
+from robokami.main import RKClient
 
 
 def prepare_order(
-    d,
-    price=None,
-    lots=None,
-    demo=True,
-    order_note=None,
-    order_status=None,
+    d: dict,
+    price: int | float = None,
+    lots: int = None,
+    demo: bool = True,
+    order_note: str = None,
+    order_status: str = None,
 ):
+    """Wrapper function for sending trade order.
+
+    Args:
+        d (dict): Order dictionary
+        price (int | float, optional): Price of the order. Defaults to None.
+        lots (int, optional): Number of lots. Defaults to None.
+        demo (bool, optional): If True, order is placed in demo mode. Defaults to True.
+        order_note (str, optional): Order note. Defaults to None.
+        order_status (str, optional): Order status. Defaults to None.
+
+    Returns:
+        dict: Order dictionary
+        str: Command phrase
+    """
     d2 = copy.deepcopy(d)
     trade_command_phrase = "pass"
     order_id = d2.get("order_id", None)
@@ -43,10 +58,14 @@ def prepare_order(
     return d2, trade_command_phrase
 
 
-def send_trade_order(client, d, command_phrase):
-    # if "lots" in d.keys():
-    #     d["lots"] = abs(d["lots"])
+def send_trade_order(client: RKClient, d: dict, command_phrase: str):
+    """Wrapper function for sending trade order.
 
+    Args:
+        client (Client): Client object
+        d (dict): Order dictionary
+        command_phrase (str): Command phrase
+    """
     if command_phrase == "place_order":
         res = client.place_order(d)
 
