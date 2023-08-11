@@ -4,6 +4,10 @@ Robokami Client is the client to connect to Robokami IDM Server. Although it is 
 
 _Note: Robokami Client is in alpha phase, so there will be breaking changes very soon._
 
++ For more detailed documentation, see [Wiki](https://github.com/Tideseed/robokami-py/wiki).  
++ For bugs, enhancements and other issues see [Issues](https://github.com/Tideseed/robokami-py/issues)
++ See [Discussions](https://github.com/Tideseed/robokami-py/discussions) to add feedback
+
 ## Installation
 
 First download this repository or directly install it [pip](https://pypi.org).
