@@ -9,7 +9,11 @@ class RKClient:
     """Main class for interacting with IDM. See Documentation for details."""
 
     def __init__(
-        self, creds: dict, server: str = "https://idm.robokami.com", **kwargs
+        self,
+        token: str,
+        creds: dict,
+        server: str = "https://idm.robokami.com",
+        **kwargs
     ) -> None:
         """Initializes the client.
 
@@ -19,7 +23,7 @@ class RKClient:
             initiate_login: If True, initiates login upon initialization. Defaults to True.
             initiate_stream: If True, initiates stream upon initialization. Defaults to False.
         """
-
+        self.token = token
         self.server = server
         self.creds = creds
         if kwargs.get("initiate_login", True):
@@ -34,7 +38,7 @@ class RKClient:
         """
         res = requests.get(
             os.path.join(self.server, "login"),
-            json={"credentials": self.creds},
+            json={"credentials": self.creds, "token": self.token},
             timeout=15,
         )
 
